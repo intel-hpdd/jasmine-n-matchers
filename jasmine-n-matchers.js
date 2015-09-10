@@ -29,7 +29,7 @@ beforeEach(function () {
               message: 'Expected a spy, but got ' + jasmine.pp(actual) + '.'
             };
 
-          var count = actual.calls.count()
+          var count = actual.calls.count();
 
           var result = {
             pass: util.equals(count, n, customEqualityTesters)
@@ -83,11 +83,11 @@ beforeEach(function () {
 
           if (result.pass)
             result.message = 'Expected spy ' + actualIdentity + ' not to have been called with ' +
-              jasmine.pp(expectedArgs) + ' ' + n + ' time(s) but it was.'
+              jasmine.pp(expectedArgs) + ' ' + n + ' time(s) but it was.';
           else
             result.message = 'Expected spy ' + actualIdentity + ' to have been found with ' +
               jasmine.pp(expectedArgs) + ' ' + n + ' time(s) but it was found ' + foundCount + ' time(s).\n\n' +
-              'Spy '+ actual.and.identity() + ' call listing:\n' + jasmine.pp(allActualArgs) + '.'
+              'Spy '+ actual.and.identity() + ' call listing:\n' + jasmine.pp(allActualArgs) + '.';
 
           return result;
         }

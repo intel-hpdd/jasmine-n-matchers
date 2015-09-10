@@ -1,22 +1,32 @@
 {
-  "name": "jasmine-n-matchers",
+  "name": "@intel-js/jasmine-n-matchers",
   "version": "2.0.2",
   "description": "A set of matchers to assert a spy was called n times",
   "main": "jasmine-n-matchers.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jgrund/jasmine-n-matchers.git"
+    "url": "https://github.com/intel-js/jasmine-n-matchers.git"
   },
-  "keywords": [
-    "jasmine",
-    "matchers",
-    "assert",
-    "spy"
+  "scripts": {
+    "test": "JASMINE_CONFIG_PATH=jasmine.json NODE_ENV=test jasmine",
+    "jshint": "jshint --c ./.jshintrc --exclude-path ./.jshintignore .",
+    "jscs": "jscs ."
+  },
+  "pre-commit": [
+    "jscs",
+    "jshint",
+    "test"
   ],
-  "author": "Joe Grund",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jgrund/jasmine-n-matchers/issues"
+  "devDependencies": {
+    "jasmine": "2.3.2",
+    "jscs": "2.1.0",
+    "jshint": "2.8.0",
+    "krusty-jasmine-reporter": "1.0.0",
+    "pre-commit": "1.1.1"
   },
-  "homepage": "https://github.com/jgrund/jasmine-n-matchers"
+  "whitelist": [
+    "jasmine",
+    "krusty-jasmine-reporter"
+  ]
 }
