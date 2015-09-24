@@ -1,5 +1,22 @@
-'use strict';
 beforeEach(function () {
+  'use strict';
+
+  var pp = jasmine.pp.bind(jasmine);
+
+  jasmine.addCustomEqualityTester(errorEquality);
+
+  function errorEquality (a, b) {
+    if (a instanceof Error && b instanceof Error)
+      return (a.message === b.message && getConstructor(a) === getConstructor(b));
+
+    // Otherwise, return undefined:
+    // http://jasmine.github.io/2.3/custom_equality.html
+  }
+
+  function getConstructor (x) {
+    return Object.getPrototypeOf(x).constructor;
+  }
+
   jasmine.addMatchers({
     toHaveBeenCalledOnce: toHaveBeenCalledN(1),
     toHaveBeenCalledTwice: toHaveBeenCalledN(2),
@@ -26,7 +43,7 @@ beforeEach(function () {
           if (!jasmine.isSpy(actual))
             return {
               result: false,
-              message: 'Expected a spy, but got ' + jasmine.pp(actual) + '.'
+              message: 'Expected a spy, but got ' + pp(actual) + '.'
             };
 
           var count = actual.calls.count();
@@ -51,7 +68,7 @@ beforeEach(function () {
    * @param {Number} n
    * @returns {Function}
    */
-  function toHaveBeenCalledNTimesWith(n) {
+  function toHaveBeenCalledNTimesWith (n) {
     return function matcherFactory (util, customEqualityTesters) {
       return {
         compare: function compare () {
@@ -64,11 +81,12 @@ beforeEach(function () {
           if (!jasmine.isSpy(actual))
             return {
               result: false,
-              message: 'Expected a spy, but got ' + jasmine.pp(actual) + '.'
+              message: 'Expected a spy, but got ' + pp(actual) + '.'
             };
 
           var allActualArgs = actual.calls.allArgs();
-          var foundCount = allActualArgs.reduce(function (count, args) {
+
+          var foundCount = allActualArgs.reduce(function reduceCount (count, args) {
             if (util.equals(args, expectedArgs, customEqualityTesters))
               count += 1;
 
@@ -79,19 +97,24 @@ beforeEach(function () {
             pass: util.equals(foundCount, n)
           };
 
-          var actualIdentity = actual.and.identity();
+          var id = actual.and.identity();
 
           if (result.pass)
-            result.message = 'Expected spy ' + actualIdentity + ' not to have been called with ' +
-              jasmine.pp(expectedArgs) + ' ' + n + ' time(s) but it was.';
+            result.msg = fmt('Expected spy %s not to have been called with %s %s time(s) but it was.',
+              [id, pp(expectedArgs), n]);
           else
-            result.message = 'Expected spy ' + actualIdentity + ' to have been found with ' +
-              jasmine.pp(expectedArgs) + ' ' + n + ' time(s) but it was found ' + foundCount + ' time(s).\n\n' +
-              'Spy '+ actual.and.identity() + ' call listing:\n' + jasmine.pp(allActualArgs) + '.';
+            result.msg = fmt('%s %s time(s) but it was found %s time(s).\n\nSpy %s call listing:\n%s.',
+              [pp(expectedArgs), n, foundCount, id, pp(allActualArgs)]);
 
           return result;
         }
       };
     };
   }
+  function fmt (x, xs) {
+    return xs.reduce(function format (msg, replacement) {
+      return msg.replace(/\%s/, replacement);
+    }, x);
+  }
+
 });
