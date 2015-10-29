@@ -1,11 +1,14 @@
 {
-  "name": "@intel-js/jasmine-n-matchers",
+  "name": "intel-jasmine-n-matchers",
   "version": "2.1.0",
   "description": "A set of matchers to assert a spy was called n times",
   "main": "jasmine-n-matchers.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/intel-js/jasmine-n-matchers.git"
+    "url": "https://github.intel.com/IML/intel-jasmine-n-matchers.git"
+  },
+  "publishConfig": {
+    "registry": "https://ubit-artifactory-or.intel.com/artifactory/api/npm/iml-npm-local"
   },
   "scripts": {
     "test": "JASMINE_CONFIG_PATH=jasmine.json NODE_ENV=test jasmine",
