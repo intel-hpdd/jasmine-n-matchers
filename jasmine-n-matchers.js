@@ -100,10 +100,10 @@ beforeEach(function () {
           var id = actual.and.identity();
 
           if (result.pass)
-            result.msg = fmt('Expected spy %s not to have been called with %s %s time(s) but it was.',
+            result.message = fmt('Expected spy %s not to have been called with %s %s time(s) but it was.',
               [id, pp(expectedArgs), n]);
           else
-            result.msg = fmt('%s %s time(s) but it was found %s time(s).\n\nSpy %s call listing:\n%s.',
+            result.message = fmt('%s %s time(s) but it was found %s time(s).\n\nSpy %s call listing:\n%s.',
               [pp(expectedArgs), n, foundCount, id, pp(allActualArgs)]);
 
           return result;

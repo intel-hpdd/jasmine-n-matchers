@@ -1,5 +1,7 @@
 'use strict';
 
+var execFile = require('child_process').execFile;
+
 describe('jasmine n matchers', function () {
 
   var spy;
@@ -95,6 +97,20 @@ describe('jasmine n matchers', function () {
 
     it('should check for 1 call and know if the arguments of the invocation are different', function () {
       expect(spy).not.toHaveBeenCalledOnceWith('foo', 'baz');
+    });
+
+    describe('when an expectation fails', function () {
+      it('should report the failure', function (done) {
+        var testPath = 'test/fixtures/proper-failure-msg-test.js';
+
+        execFile('jasmine', [testPath], {}, function assert (err, stdout) {
+          if (!err) done.fail(err); // If the test passes, `err` will be truthy...but, it should fail.
+
+          expect(stdout).toContain('[ \'\' ] 1 time(s) but it was found 0 time(s).');
+
+          done();
+        });
+      });
     });
   });
 
