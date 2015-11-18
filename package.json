@@ -1,6 +1,6 @@
 {
   "name": "intel-jasmine-n-matchers",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A set of matchers to assert a spy was called n times",
   "main": "jasmine-n-matchers.js",
   "repository": {
