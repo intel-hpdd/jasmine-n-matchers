@@ -23,9 +23,9 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "jasmine": "2.3.2",
-    "jscs": "2.1.0",
-    "jshint": "2.8.0",
+    "jasmine": "2.6.0",
+    "jscs": "3.0.7",
+    "jshint": "2.9.4",
     "krusty-jasmine-reporter": "1.0.0",
     "pre-commit": "1.1.1"
   }
