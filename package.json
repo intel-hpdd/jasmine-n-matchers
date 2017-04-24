@@ -1,14 +1,14 @@
 {
-  "name": "intel-jasmine-n-matchers",
+  "name": "@mfl/jasmine-n-matchers",
   "version": "2.1.1",
   "description": "A set of matchers to assert a spy was called n times",
   "main": "jasmine-n-matchers.js",
   "repository": {
     "type": "git",
-    "url": "https://github.intel.com/IML/intel-jasmine-n-matchers.git"
+    "url": "git@github.com:intel-hpdd/jasmine-n-matchers.git"
   },
   "publishConfig": {
-    "registry": "https://ubit-artifactory-or.intel.com/artifactory/api/npm/iml-npm-local"
+    "access": "public"
   },
   "scripts": {
     "test": "JASMINE_CONFIG_PATH=jasmine.json NODE_ENV=test jasmine",
@@ -27,9 +27,5 @@
     "jshint": "2.8.0",
     "krusty-jasmine-reporter": "1.0.0",
     "pre-commit": "1.1.1"
-  },
-  "whitelist": [
-    "jasmine",
-    "krusty-jasmine-reporter"
-  ]
+  }
 }
