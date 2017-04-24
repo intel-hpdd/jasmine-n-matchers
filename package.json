@@ -3,6 +3,7 @@
   "version": "2.1.1",
   "description": "A set of matchers to assert a spy was called n times",
   "main": "jasmine-n-matchers.js",
+  "author": "MFL Team",
   "repository": {
     "type": "git",
     "url": "git@github.com:intel-hpdd/jasmine-n-matchers.git"
