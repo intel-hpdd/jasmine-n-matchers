@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- 6
+cache: yarn
+deploy:
+  provider: npm
+  email: joe.grund@intel.com
+  api_key:
+    secure: hrbozuQMA1tJNdL6WXpqzI7vORaMvJhbRY2l6r1QKurevF1s61bMm3lVNYFQwelDFYq5Cx5qWK8+CWPwNW3MVTPANnH1mKGGZki+M9t2fYHFeAkovBjVCFIBANq/EGgM/qEfGw/8ISSHHJM/ekbnOwvOW8cNVDCxROAWWwaUdGyrTG5AOeLh8DEKG/9bK9UOwQmggWTH7/dkxdctw1QSlyvU1rfcUZMRRiTA+lgm8+WgxHanImg170YntFPL5KALq6b7+vXbbis3LBumIx0hN2Obuqq7uwkFMkF1HoEUzr5dA6L6LGJwhl0Kvrj/x8DBAT1Lumi9FhtqAXlI2UHMtyXQmSgYH1XbH/5l5XD5Ia+9St+Ebz00AHbvk29NyPHs499y7GOcElAVMZYDnG/QwHtelfwlhhsyfscv1+dzp49BFVkST8Nd0vF8gKaCoJ1EMy01qZTRcxBFRtV+3K154JK4bOSL+uYMrqzgcLQimZzDW2fKLbqacyY0IOmZfBmVq4Q6Bfnt5LbgialRtpxUdJcUhLjyuL+ENeVfN1w2V9Vj78boOzh94EDGbVAWtsLSswNlVrRNO2+EZ1zIKcIFoVYJCqhoWpgH6FksW6Jv5TAiaKJS25YGedFE9IrOrUGkh2Z/h+1i8iFBDU8vUNwPgIdntv8EJyZs0nsk5ik6zq0=
+  on:
+    tags: true
+    repo: intel-hpdd/jasmine-n-matchers
+    branch: master
