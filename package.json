@@ -23,10 +23,10 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "jasmine": "2.6.0",
+    "jasmine": "^2.7.0",
     "jscs": "3.0.7",
-    "jshint": "2.9.4",
+    "jshint": "^2.9.5",
     "krusty-jasmine-reporter": "1.0.0",
-    "pre-commit": "1.1.1"
+    "pre-commit": "^1.2.2"
   }
 }
