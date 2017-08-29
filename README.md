@@ -2,7 +2,6 @@ jasmine-n-matchers
 ==================
 
 [![Build Status](https://travis-ci.org/intel-hpdd/jasmine-n-matchers.svg?branch=master)](https://travis-ci.org/intel-hpdd/jasmine-n-matchers)
-
 [![Greenkeeper badge](https://badges.greenkeeper.io/intel-hpdd/jasmine-n-matchers.svg)](https://greenkeeper.io/)
 
 A set of matchers to assert a spy was called n times
